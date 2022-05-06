@@ -156,7 +156,7 @@
             });
 
             map.addLayer({
-                'id': 'Land Slide Locations',
+                'id': 'Landslide Locations',
                 'type': 'raster',
                 'layout': {
                     'visibility': 'none'
@@ -192,13 +192,13 @@
 
         map.on('idle', () => {
             // If these two layers were not added to the map, abort
-            if (!map.getLayer('Base Map') || !map.getLayer('Land Slide Locations')
+            if (!map.getLayer('Base Map') || !map.getLayer('Landslide Locations')
                 || !map.getLayer('Mix') || !map.getLayer('Book Culture')) {
                 return;
             }
 
             // Enumerate ids of the layers.
-            const toggleableLayerIds = ['Base Map', 'Land Slide Locations', 'Mix', 'Book Culture'];
+            const toggleableLayerIds = ['Base Map', 'Landslide Locations', 'Mix', 'Book Culture'];
 
             // Set up the corresponding toggle button for each layer.
             for (const id of toggleableLayerIds) {
