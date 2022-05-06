@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital@1&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
@@ -37,12 +37,12 @@
             background: #fff;
             position: absolute;
             z-index: 1;
-            top: 40px;
+            top: 10px;
             right: 50px;
             border-radius: 3px;
             width: 400px;
             border: 1px solid rgba(0, 0, 0, 0.4);
-            font-family: 'Oleo Script Swash Caps', cursive;
+            font-family: 'Libre Bodoni', serif;
             text-align: center;
         }
 
@@ -101,8 +101,8 @@
             'pk.eyJ1IjoiamFrb2J6aGFvIiwiYSI6ImNpcms2YWsyMzAwMmtmbG5icTFxZ3ZkdncifQ.P9MBej1xacybKcDN_jehvw';
         let map = new mapboxgl.Map({
             container: 'map', // container ID
-            style: 'mapbox://styles/mapbox/light-v10',
-            zoom: 9, // starting zoom
+            style: 'mapbox://styles/mapbox/navigation-night-v1',
+            zoom: 10, // starting zoom
             center: [-122.2559435, 47.6002614] // starting center
         });
 
@@ -183,6 +183,12 @@
             });
         });
 
+        const scale = new mapboxgl.ScaleControl({
+            maxWidth: 200,
+            unit: 'metric'
+        });
+        map.addControl(scale);
+        map.addControl(new mapboxgl.NavigationControl());
 
         map.on('idle', () => {
             // If these two layers were not added to the map, abort
